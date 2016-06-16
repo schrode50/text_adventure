@@ -31,7 +31,7 @@ function GameController() {
 
 GameController.prototype.startGame = function() {
   this.gamelog = []; //clear
-  this.userLocation = 'start';
+  this.userLocation = 'weaponroom';
   this.userHasWeapon = false;
   this.command = '';
   this.gamelog.push({
@@ -53,7 +53,7 @@ GameController.prototype.processInput = function() {
     msg: this.command
   });
 
-  switch (this.command) {
+  switch (this.command.split(' ')[0]) {
   case '?':
     this.gamelog.push({
       src: 'game',
