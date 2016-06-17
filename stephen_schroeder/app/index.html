@@ -2,27 +2,26 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>adventure</title>
   <link rel="stylesheet" href="app.css">
 </head>
 
-<body data-ng-app="adventureApp">
+<body ng-app="adventureApp">
 
-  <main data-ng-controller="GameController as moves" ng-cloak data-ng-init="moves.startGame()">
+  <main ng-controller="GameController as user" ng-cloak ng-init="user.startGame()">
 
     <h1>Adventure App:</h1>
 
-    <form name="userInputForm" data-ng-submit="moves.processInput()">
+    <form name="userInputForm" ng-submit="user.processInput()">
       <label for="command">Command:
-        <input type="text" required data-ng-model="moves.command">
+        <input type="text" required ng-model="user.command">
       </label>
       <button type="submit">Go</button>
     </form>
 
     <ul id="inputlog" >
-      <li data-ng-repeat="item in moves.gamelog">
+      <li ng-repeat="item in user.gamelog">
         <span class="{{item.src}}-input">{{item.msg}}</span>
       </li>
     </ul>
